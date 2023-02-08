@@ -1,0 +1,24 @@
+﻿@page
+@model E_learning.Pages.tutorialpageModel
+@{
+}
+<h1>Tutorial Page</h1>
+@foreach (var tutorial in Model.Tutorials)
+{
+
+
+
+    <h1>@tutorial.Title</h1>
+    <h2>@tutorial.Description</h2>
+    <h3>@tutorial.Content</h3>
+    @foreach (var quiz in tutorial.QuizQuestions)
+    {
+        <h1>Quiz</h1>
+
+        <h3>@quiz.Question</h3>
+        <h3>@quiz.Answer1</h3>
+        <h3>@quiz.Answer2</h3>
+        <h3>@quiz.Answer3</h3>
+        <h3>@quiz.CorrectAnswer</h3>
+    }
+}

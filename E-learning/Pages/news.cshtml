@@ -1,0 +1,59 @@
+﻿@page
+@model E_learning.Pages.newsModel
+@{}
+
+<script src="Scripts/jquery-3.6.3.min.js"></script>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();
+            });
+        });
+
+
+        $.ajax({
+            url: 'https://newsdata.io/api/1/news?apikey=pub_15648ba4c60456181e597f81d884adc7eb434&language=en&category=technology',
+            method: 'GET',
+            success: function (news) {
+                var container = $('#news-container');
+
+
+
+
+                for (var i = 0; i < news.results.length; i++) {
+
+
+                    var results = news.results[i];
+                    if (results.description.length >= 200) {
+                        results.description = results.description.substr(0, 200);
+                    }
+                    container.append(
+                        '<div class="news-article">' +
+                        '<h2>' + results.title + '</h2>' +
+                       
+                        
+                        '<p style ="overflow-y:hidden;">' + results.description + '...' +'</p>' +
+                       
+                        '<a  href="' + results.link + '">Read More</a>' +
+                        '<p>Publisher: ' + results.source_id.charAt(0).toUpperCase() + results.source_id.slice(1) +'</p>'+
+                        '<p>Published: ' + results.pubDate + '</p>' +
+                        
+                        '</div>'
+                    );
+                }
+            },
+            error: function (error) {
+                // Handle the error
+            }
+        });
+    </script>
+}
+
+<h1>Top Technology Headlines</h1>
+<br />
+
+<div id="news-container"></div>
+
+

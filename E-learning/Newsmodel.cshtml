@@ -1,0 +1,12 @@
+﻿@page
+@model E_learning.NewsModel
+@{
+}
+<h1>Technology News</h1>
+
+<ul>
+    @foreach (var item in Model.news)
+    {
+    <li>@item.Title</li>
+    }
+</ul>
