@@ -14,10 +14,12 @@
 
   <ItemGroup>
     <Compile Remove="Newsmodel.cshtml.cs" />
+    <Compile Remove="Pages\Create.cshtml.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Newsmodel.cshtml" />
+    <Content Remove="Pages\Create.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

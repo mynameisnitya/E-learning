@@ -11,7 +11,13 @@ namespace E_learning.Pages
         public string Title { get; set; }
         public string Description { get; set; }
         public string Content { get; set; }
+        public string ProgrammingLanguage { get; set; }
         public ICollection<QuizQuestion> QuizQuestions { get; set; }
+
+        public static implicit operator int(Tutorial v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class QuizQuestion

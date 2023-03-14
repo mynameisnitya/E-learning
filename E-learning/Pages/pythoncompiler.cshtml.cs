@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace E_learning.Pages
 {
-    public class Index1Model : PageModel
+    public class pythonmodel : PageModel
     {
         public void OnGet()
         {

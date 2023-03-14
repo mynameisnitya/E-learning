@@ -3,14 +3,16 @@ using E_learning.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_learning.Migrations
 {
     [DbContext(typeof(TutorialContext))]
-    partial class TutorialContextModelSnapshot : ModelSnapshot
+    [Migration("20230314173005_oijdoia")]
+    partial class oijdoia
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
