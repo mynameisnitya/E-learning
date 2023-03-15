@@ -10,13 +10,18 @@
    
     /* styles for the quiz section */
     #main_con {
+        width: 40%;
         background-color: bisque;
         padding: 40px;
-        margin:10px;
-        border-radius: 10px;
+        margin: 10px;
+        border-radius: 4px;
         margin-bottom: 20px;
+        
     }
-
+        #main_con:hover {
+            box-shadow: 5px 10px 8px 10px grey;
+            transition-duration:2s;
+        }
     #main_con h2 {
         color: #333;
         text-transform: uppercase;
@@ -32,6 +37,7 @@
 
     #main_con a {
         display: inline-block;
+        margin:1px;
         padding: 10px 20px;
         background-color: #333;
         color: white;
@@ -47,6 +53,7 @@
     #home_cover {
         display: flex;
         flex-wrap: wrap;
+        
         justify-content: center;
     }
 </style>
@@ -59,7 +66,10 @@
 
     <section id="main_con">
         <h2>Compilers</h2>
-        <p>Compile and run your code online.</p>
+        <p>
+            Java, Python, and C++ are popular programming languages.
+            Compile and run your code online.
+        </p>
         <a href="javacompiler">Try Java </a>
         <a href="cppcompiler">Try C++</a>
         <a href="pythoncompiler">Try Python</a>
@@ -68,14 +78,14 @@
     <section id="main_con">
         <h2>Tutorials</h2>
         <p>Learn by reading our step-by-step tutorials and test your knowledge using the AI generated Quizzes!</p>
-        <a href="tutorialpage?id=JAVA">Get started with Java</a>
-        <a href="tutorialpage?id=Python">Get started with Python</a>
-        <a href="tutorialpage?id=SQL">Get started with SQL</a>
+        <a href="tutorialpage?id=JAVA">Java</a>
+        <a href="tutorialpage?id=Python">Python</a>
+        <a href="tutorialpage?id=SQL">SQL</a>
     </section>
 
     <section id="main_con">
-        <h2>Tech News</h2>
-        <p>Keep up to date with the latest tech news</p>
+        <h2>Top Tech News</h2>
+        <p>Staying up-to-date with the latest news and advancements in the industry is important for keeping your skills relevant and advancing in your career.</p>
         <a href="news">Check them out!</a>
       
     </section>

@@ -23,8 +23,8 @@
                 answers = answers.OrderBy(a => rng.Next()).ToList();
                 foreach (var answer in answers)
                 {
-
-                    <input type="radio" name="answer" value="@answer"><br />@answer<br>
+                    
+                    <input type="radio" name="answer" value="@answer">@answer<br>
                 }
                 
                 <input type="hidden" name="id" value="@Model.language" />
