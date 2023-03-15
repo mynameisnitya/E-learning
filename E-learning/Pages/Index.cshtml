@@ -2,3 +2,82 @@
 @model E_learning.IndexModel
 @{
 }
+<style>
+    footer {
+        background-color: white;
+        
+    }
+   
+    /* styles for the quiz section */
+    #main_con {
+        background-color: bisque;
+        padding: 40px;
+        margin:10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    #main_con h2 {
+        color: #333;
+        text-transform: uppercase;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    #main_con p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    #main_con a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }
+
+    #main_con a:hover {
+        background-color: #555;
+    }
+    #home_cover {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+</style>
+<div id="home_cover">
+    <section id="main_con">
+        <h2>Randomizer Quizzes</h2>
+        <p>Test your knowledge with our fun and interactive quizzes.</p>
+        <a href="quiz">Take a quiz</a>
+    </section>
+
+    <section id="main_con">
+        <h2>Compilers</h2>
+        <p>Compile and run your code online.</p>
+        <a href="javacompiler">Try Java </a>
+        <a href="cppcompiler">Try C++</a>
+        <a href="pythoncompiler">Try Python</a>
+    </section>
+
+    <section id="main_con">
+        <h2>Tutorials</h2>
+        <p>Learn by reading our step-by-step tutorials and test your knowledge using the AI generated Quizzes!</p>
+        <a href="tutorialpage?id=JAVA">Get started with Java</a>
+        <a href="tutorialpage?id=Python">Get started with Python</a>
+        <a href="tutorialpage?id=SQL">Get started with SQL</a>
+    </section>
+
+    <section id="main_con">
+        <h2>Tech News</h2>
+        <p>Keep up to date with the latest tech news</p>
+        <a href="news">Check them out!</a>
+      
+    </section>
+
+</div>

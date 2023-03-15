@@ -1,24 +1,27 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - E_learning</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+  
+        <nav   class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div style="display:flex !important;flex-wrap:wrap !important;" class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">E_learning</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span   class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul  style="display:flex !important;flex-wrap:wrap !important;" class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
@@ -31,6 +34,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Quiz">Randomizer Quiz</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/newTutorial">Add new content</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-dark" href="#" id="compilersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Compilers
@@ -39,6 +45,18 @@
                                 <a class="dropdown-item" asp-area="" asp-page="/Javacompiler">Java Compiler</a>
                                 <a class="dropdown-item" asp-area="" asp-page="/cppcompiler">C++ Compiler</a>
                                 <a class="dropdown-item" asp-area="" asp-page="/pythoncompiler">Python Compiler</a>
+                            </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="tutorialsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tutorials
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="tutorialsDropdown">
+                                <a class="dropdown-item" asp-route-id="JAVA" asp-page="tutorialpage">Java Tutorials</a>
+                                <a class="dropdown-item" asp-route-id="C++" asp-page="/tutorialpage">C++ Tutorials</a>
+                                <a class="dropdown-item" asp-route-id="Python" asp-page="/tutorialpage">Python Tutorials</a>
+                                <a class="dropdown-item" asp-route-id="SQL" asp-page="/tutorialpage">SQL Tutorials</a>
+                                <a class="dropdown-item" asp-route-id="C#" asp-page="/tutorialpage">C# Tutorials</a>
+
                             </div>
                         </li>
 

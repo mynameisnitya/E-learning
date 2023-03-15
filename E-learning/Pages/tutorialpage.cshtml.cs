@@ -20,14 +20,21 @@ namespace E_learning.Pages
 
         public IList<Tutorial> Tutorials { get; set; }
 
-     
-        public async Task OnGetAsync()
+        public string language { get; set; }
+        public async Task OnGetAsync(String Id)
+
         {
+            language = Id;
+
+
             Tutorials = await _context.Tutorials
               .Include(t => t.QuizQuestions)
               .AsNoTracking()
               .ToListAsync();
+             Page();
+            
         }
+     
 
     }
 
