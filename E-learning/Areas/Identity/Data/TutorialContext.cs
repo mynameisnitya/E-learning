@@ -10,9 +10,11 @@ namespace E_learning.Areas.Identity.Data
 
     public class TutorialContext : DbContext
     {
+
         public DbSet<Tutorial> Tutorials { get; set; }
         public DbSet<QuizQuestion> QuizQuestions { get; set; }
-        
+       
+
         public TutorialContext(DbContextOptions<TutorialContext> options)
      : base(options)
         { }

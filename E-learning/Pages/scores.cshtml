@@ -1,0 +1,63 @@
+﻿@page
+@model E_learning.Pages.scoresModel
+@{
+}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 0.5em;
+    }
+
+    th {
+        background-color: #F5F5F5;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #F5F5F5;
+    }
+
+    tr:hover {
+        background-color: #EFEFEF;
+    }
+    </style>
+<table >
+    <h1>Checkout your quiz scores</h1>
+    <thead>
+        <tr>
+            <th>Quiz Id</th>
+            <th>Question</th>
+            <th>Score</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var score in Model.QuizScores)
+        {
+            string quizquestion = "";
+            @foreach (var tutorial in Model.Tutorials)
+            {
+                @foreach (var quiz in tutorial.QuizQuestions)
+                {
+                    if (quiz.Id == score.QuizId)
+                    {
+                        quizquestion = quiz.Question;
+                    }
+                }
+            }
+
+            <tr>
+                <td>@score.QuizId</td>
+                <td>@quizquestion</td>
+                <td>@score.Score</td>
+                <td>@score.UserId</td>
+            </tr>
+        }
+    </tbody>
+</table>

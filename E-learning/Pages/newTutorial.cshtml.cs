@@ -5,15 +5,17 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using E_learning.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace E_learning.Pages
-{
+{ //[Authorize(Roles = "Administrator")]
     public class newTutorialModel : PageModel
     {
+       
         private readonly TutorialContext _context;
         [BindProperty]
         public Tutorial Tutorial { get; set; }

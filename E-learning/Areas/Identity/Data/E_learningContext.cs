@@ -8,7 +8,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_learning.Data
 {
+    public class QuizScore
+    {
+        public int Id { get; set; }
+        public int Score { get; set; }
+        public int QuizId { get; set; }
 
+        public string UserId { get; set; }
+        public IdentityUser User { get; set; }
+    }
 
     public class E_learningContext : IdentityDbContext<IdentityUser>
     {
@@ -17,15 +25,20 @@ namespace E_learning.Data
         {
         }
 
-
-
+        public DbSet<QuizScore> QuizScores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
+
+            // Configure QuizScore entity
+            builder.Entity<QuizScore>()
+                .HasKey(qs => qs.Id);
+
+            builder.Entity<QuizScore>()
+                .HasOne(qs => qs.User)
+                .WithMany()
+                .HasForeignKey(qs => qs.UserId);
         }
     }
 }
