@@ -38,6 +38,7 @@ namespace E_learning.Pages
         public async Task<IActionResult> OnGetAsync(string id, int index = 0)
         {
 
+      
             var user = await _userManager.GetUserAsync(User);
             CurrentUser = user;
 

@@ -15,13 +15,20 @@ namespace E_learning.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<E_learningContext>(options =>
-                    options.UseSqlServer(
-                        context.Configuration.GetConnectionString("E_learningContextConnection")));
+            services.AddDbContext<E_learningContext>(options =>
+                options.UseSqlServer(
+                    context.Configuration.GetConnectionString("E_learningContextConnection")));
 
-                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<E_learningContext>();
+                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>().AddEntityFrameworkStores<E_learningContext>()
+        .AddDefaultTokenProviders();
+
+               
+
             });
+
+
+                    
+          
         }
     }
 }

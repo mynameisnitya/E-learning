@@ -30,6 +30,7 @@ namespace E_learning
             services.AddHttpClient();
             // services.AddDbContext<QuizContext>(options => options.UseSqlServer(Configuration.GetConnectionString("QuizDb")));
           
+     
 
 
         }

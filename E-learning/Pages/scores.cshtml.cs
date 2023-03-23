@@ -16,9 +16,10 @@ namespace E_learning.Pages
      
         private readonly E_learningContext _contextuser;
         private readonly TutorialContext _context;
-        public IdentityUser CurrentUser { get; set; }
+       
 
         private readonly UserManager<IdentityUser> _userManager;
+        public IdentityUser CurrentUser { get; set; }
         public List<QuizScore> QuizScores { get; set; } = new List<QuizScore>();
 
         public IList<Tutorial> Tutorials { get; set; }
@@ -32,13 +33,22 @@ namespace E_learning.Pages
         public async Task<IActionResult> OnGetAsync()
         {
 
+           
+
+
             Tutorials = await _context.Tutorials
  
              .Include(t => t.QuizQuestions)
              .AsNoTracking()
              .ToListAsync();
             var user = await _userManager.GetUserAsync(User);
+            
+            var roles = await _userManager.GetRolesAsync(user);
+            var rolesString = string.Join(", ", roles);
+            Console.WriteLine("Roles: {0}", rolesString);
+
             CurrentUser = user;
+      
             if (user == null || user.Id == null)
             {
                 return RedirectToPage("/Account/Login", new { area = "Identity" });

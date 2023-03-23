@@ -5,18 +5,25 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using E_learning.Areas.Identity.Data;
+using E_learning.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace E_learning.Pages
-{ //[Authorize(Roles = "Administrator")]
+{
+    //[Authorize(Roles = "AdminManager")]
     public class newTutorialModel : PageModel
     {
-       
+        private readonly E_learningContext _contextuser;
         private readonly TutorialContext _context;
+
+
+        private readonly UserManager<IdentityUser> _userManager;
+       
         [BindProperty]
         public Tutorial Tutorial { get; set; }
         [BindProperty]
@@ -44,18 +51,26 @@ namespace E_learning.Pages
             public List<Datum> data { get; set; }
         }
 
-        public newTutorialModel(IHttpClientFactory httpClientFactory, TutorialContext context)
+        public newTutorialModel(IHttpClientFactory httpClientFactory, TutorialContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
             _httpClient = httpClientFactory.CreateClient();
             _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             _httpClient.DefaultRequestHeaders.Add("Authorization", " Bearer 68|ZZkIy2EkPMsxKWf9ym9CoNtvf5oTnuTQheh1i1ja");
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGetAsync()
         {
-
+            //restrict access to adminmanager users
+            var user = await _userManager.GetUserAsync(User);
+            var roles = await _userManager.GetRolesAsync(user);
+            if (!roles.Contains("AdminManager"))
+            {
+                return Forbid();
+            }
             Console.WriteLine("hello");
+            return Page();
         }
 
 
