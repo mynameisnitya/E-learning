@@ -43,11 +43,7 @@ namespace E_learning.Pages
              .ToListAsync();
             var user = await _userManager.GetUserAsync(User);
             
-            var roles = await _userManager.GetRolesAsync(user);
-            var rolesString = string.Join(", ", roles);
-            Console.WriteLine("Roles: {0}", rolesString);
-
-            CurrentUser = user;
+          
       
             if (user == null || user.Id == null)
             {
@@ -55,8 +51,12 @@ namespace E_learning.Pages
             }
             else
             {
-            
 
+                var roles = await _userManager.GetRolesAsync(user);
+                var rolesString = string.Join(", ", roles);
+                Console.WriteLine("Roles: {0}", rolesString);
+
+                CurrentUser = user;
 
 
 

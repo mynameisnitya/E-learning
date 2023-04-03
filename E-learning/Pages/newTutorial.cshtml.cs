@@ -64,10 +64,17 @@ namespace E_learning.Pages
         {
             //restrict access to adminmanager users
             var user = await _userManager.GetUserAsync(User);
-            var roles = await _userManager.GetRolesAsync(user);
-            if (!roles.Contains("AdminManager"))
+            if (user == null)
             {
                 return Forbid();
+            }
+            else
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                if (!roles.Contains("AdminManager"))
+                {
+                    return Forbid();
+                }
             }
             Console.WriteLine("hello");
             return Page();
